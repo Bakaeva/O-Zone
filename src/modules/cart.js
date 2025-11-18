@@ -5,10 +5,11 @@ const cart = () => {
 
     cartBtn.addEventListener('click', () => {
         cartModal.style.display = 'flex';
-    });
 
-    cartCloseBtn.addEventListener('click', () => {
-        cartModal.style.display = 'none';
+        cartCloseBtn.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+
     });
 };
 
