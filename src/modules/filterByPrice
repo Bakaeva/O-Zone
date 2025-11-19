@@ -1,0 +1,33 @@
+import getData from './getData';
+import renderGoods from './renderGoods';
+import { priceFilter, discountFilter } from './filters';
+
+const filterByPrice = () => {
+    const minInput = document.getElementById('min');
+    const maxInput = document.getElementById('max');
+    const discountCheckbox = document.getElementById('discount-checkbox');
+    const checkboxSpan = document.querySelector('.filter-check_checkmark');
+
+    minInput.addEventListener('input', () => {
+        getData().then((json) => {
+            renderGoods(priceFilter(discountFilter(json, discountCheckbox.checked), minInput.value, maxInput.value));
+        });
+    });
+
+    maxInput.addEventListener('input', () => {
+        getData().then((json) => {
+            renderGoods(priceFilter(discountFilter(json, discountCheckbox.checked), minInput.value, maxInput.value));
+        });
+    });
+
+    discountCheckbox.addEventListener('change', () => {
+        discountCheckbox.checked ? checkboxSpan.classList.add('checked') :
+            checkboxSpan.classList.remove('checked');
+
+        getData().then((json) => {
+            renderGoods(priceFilter(discountFilter(json, discountCheckbox.checked), minInput.value, maxInput.value));
+        });
+    });
+};
+
+export default filterByPrice;

@@ -1,5 +1,12 @@
 import cart from './modules/cart';
-import second from './modules/second';
+import load from './modules/load';
+import filterByTitle from './modules/filterByTitle';
+import filterByCategory from './modules/filterByCategory';
+import filterByPrice from './modules/filterByPrice';
 
 cart();
-second();
+load();
+
+filterByTitle();
+filterByCategory();
+filterByPrice();
